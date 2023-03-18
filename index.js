@@ -2,9 +2,7 @@ const express = require("express"),
   cors = require("cors"),
   mongoose = require("mongoose"), // <-- fix typo here
   booksRouter = require("./routes/books");
-
 require("dotenv").config();
-
 const app = express(),
   port = process.env.PORT || 5000;
 
