@@ -55,6 +55,10 @@ router.route("/:id").get((req,res)=>{
 }) // ends getting single doc by id
 router.route("/update-page/:id").post((req,res)=>{
   book.updateOne({_id: req.params.id}, { $set: { [req.body.field]: req.body.content } }).then((o)=> res.json(o)).catch((err)=> res.json(err))
+}) // ens updtade-page route
+router.route("/update-fields/:id").post((req,res)=>{
+  book.updateMany({_id: req.params.id},
+     { $set: req.body }).then((o)=> res.json(o)).catch((err)=> res.json(err))
 })
 module.exports = router;
 
